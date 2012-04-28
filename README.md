@@ -38,14 +38,14 @@ This means that Fraction grid can be structured by thinking in terms of grid col
 The responsiveness
 ------------------
 
-Fraction grid's 'responsiveness' comes from the fact that every width is based on %, even the gutters.
+Fraction grid's 'responsiveness' comes from the fact that every width is based on the relative '%', even the gutters. This makes the layout super fluid.
 
-Also, the way column widths are applied with mixins works neatly with media queries. We can simply handpick what `grid-unit` mixins we need for each media query.
+Also, the way column widths are applied with mixins works neatly with media queries. We can simply handpick what `grid-unit` mixins we need for a specific layout unit for different media queries.
 
 The details
 -----------
 
-The demo covers pretty much the basics of Fraction grid. But as of now, it doesn't do the best job at explaining everything that is going on and how all the thinking goes. 
+The demo covers pretty much the basics of Fraction grid. But at this moment, it doesn't do the best job at explaining everything that is going on and how all the thinking goes. 
 
 I promise to sort that out soon.
 
