@@ -1,0 +1,115 @@
+/*------------------------------------------------------------------
+
+fraction/grid
+
+Author:   Robert Piirainen
+Twitter:  @robertpiira
+
+------------------------------------------------------------------*/
+.grid-container {
+  padding: 0;
+  list-style: none; }
+
+.grid-unit, .demo-basic--unit, .demo-basic--unit-aside, .demo-responsive-nested--unit, .demo-responsive--unit {
+  margin: 0;
+  letter-spacing: normal;
+  vertical-align: top;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.demo-basic {
+  letter-spacing: -0.31em;
+  margin-left: -2%;
+  margin-right: -2%; }
+
+.demo-basic--unit {
+  display: inline-block;
+  width: 75%;
+  padding-left: 2%;
+  padding-right: 2%; }
+
+.demo-basic--unit-aside {
+  display: inline-block;
+  width: 25%;
+  padding-left: 2%;
+  padding-right: 2%; }
+
+.demo-responsive-nested {
+  letter-spacing: -0.31em;
+  margin-left: -2.667%;
+  margin-right: -2.667%; }
+
+.demo-responsive-nested--unit {
+  display: inline-block;
+  width: 33.333%;
+  padding-left: 2.667%;
+  padding-right: 2.667%; }
+
+@media only screen and (min-width: 481px) {
+  .demo-responsive {
+    letter-spacing: -0.31em;
+    margin-left: -2%;
+    margin-right: -2%; }
+
+  .demo-responsive--unit {
+    display: inline-block;
+    width: 50%;
+    padding-left: 2%;
+    padding-right: 2%; } }
+@media only screen and (min-width: 769px) {
+  .demo-responsive--unit {
+    display: inline-block;
+    width: 25%;
+    padding-left: 2%;
+    padding-right: 2%; } }
+* {
+  margin: 0;
+  padding: 0; }
+
+a {
+  color: #1987b3; }
+
+ul {
+  list-style: none; }
+
+body {
+  padding: 2em 0;
+  font-family: sans-serif; }
+
+.logo {
+  margin-bottom: 2em;
+  font-size: 2.5em;
+  text-align: center;
+  letter-spacing: -0.04em; }
+  .logo span {
+    color: #136586;
+    margin: 0 -0.2em 0 -0.1em;
+    position: relative;
+    z-index: 1;
+    text-shadow: 1px 1px 0 #fff; }
+
+.page {
+  margin: 1em auto;
+  width: 93%; }
+
+.footer {
+  margin-top: .5em;
+  padding-top: 1em;
+  border-top: 1px dashed #1987b3; }
+  .footer li {
+    margin-right: .5em;
+    display: inline; }
+
+.demo-box {
+  margin: 0 0 1em;
+  background: #1987b3;
+  height: 100px;
+  border-radius: 4px;
+  color: #fff;
+  text-align: center;
+  line-height: 100px; }
+  .demo-basic .demo-box {
+    background: #136586; }
+  .demo-responsive-nested .demo-box {
+    background: #0c445a; }

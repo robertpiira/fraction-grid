@@ -1,0 +1,113 @@
+
+/*------------------------------------------------------------------
+
+fraction/grid
+
+Author:   Robert Piirainen
+Twitter:  @robertpiira
+
+------------------------------------------------------------------*/
+
+
+// SETTINGS
+//------------------------------------------------------------------
+
+$default-gutters: 2% !default;
+
+// GRID EXTEND (to be extended only by grid mixins)
+// Note: should be converted to placeholder extends in the future
+//------------------------------------------------------------------
+
+// The grid unit container
+.grid-container {
+  padding: 0; // remove if you're already using a reset for paddings
+  list-style: none; // remove if you're already using a reset for list-style
+}
+
+// The grid unit
+.grid-unit {
+  margin: 0; // remove if you're already using a reset for margins
+  letter-spacing: normal;
+  vertical-align: top;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// GRID MIXINS
+//------------------------------------------------------------------
+
+// Grid unit container
+@mixin is-grid-container {
+  letter-spacing: -0.31em;
+  @extend .grid;
+}
+
+// Grid unit
+@mixin is-grid-unit {
+  display: inline-block;
+  @extend .grid-unit;
+}
+
+// Field units stretch the whole width of a container
+@mixin is-grid-field-unit {
+  display: block;
+  @extend .grid--unit;
+}
+
+// Define column widths
+@mixin has-width($target, $context) {
+    width: calculate-widths($target, $context);
+}
+
+// Define gutters
+@mixin has-gutters($gutters, $target: false, $context: false) {
+  padding-left: calculate-gutters($gutters, $target, $context);
+  padding-right: calculate-gutters($gutters, $target, $context);
+}
+
+// Define offset gutters
+@mixin has-offset-gutters($gutters, $target: false, $context: false) {
+  margin-left: -#{calculate-gutters($gutters, $target, $context)};
+  margin-right: -#{calculate-gutters($gutters, $target, $context)};
+}
+
+// Define grid parent
+@mixin grid-container($gutters: $default-gutters, $new-target: false, $new-context: false) {
+  @include is-grid-container;
+  @if ($gutters != false) {
+    @include has-offset-gutters($gutters, $new-target, $new-context);
+  }
+}
+
+// Define grid unit
+@mixin grid-unit($target: false, $context: false, $gutters: $default-gutters, $new-target: false, $new-context: false) {
+  @include is-grid-unit;
+  @if ($target and $context) {
+    @include has-width($target, $context);
+  }
+  @if ($gutters != false) {
+    @include has-gutters($gutters, $new-target, $new-context);
+  }
+}
+
+// FRACTION CALCULATORS
+//------------------------------------------------------------------
+
+// Calculate gutters
+@function calculate-gutters($gutter, $numerator, $denominator) {
+  @if ($numerator and $denominator) {
+    @return ($denominator / $numerator) * $gutter;
+  }
+  @else {
+    @return $gutter;
+  }
+}
+
+// Calculate column widths
+@function calculate-widths($numerator, $denominator) {
+  @return percentage($numerator / $denominator);
+}
+
+
+
