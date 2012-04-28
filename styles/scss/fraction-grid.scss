@@ -40,7 +40,7 @@ $default-gutters: 2% !default;
 // Grid unit container
 @mixin is-grid-container {
   letter-spacing: -0.31em;
-  @extend .grid;
+  @extend .grid-container;
 }
 
 // Grid unit

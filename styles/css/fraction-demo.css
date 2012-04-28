@@ -6,7 +6,7 @@ Author:   Robert Piirainen
 Twitter:  @robertpiira
 
 ------------------------------------------------------------------*/
-.grid-container {
+.grid-container, .demo-basic, .demo-responsive-nested, .demo-responsive {
   padding: 0;
   list-style: none; }
 
