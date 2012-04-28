@@ -40,7 +40,7 @@ The responsiveness
 
 Fraction grid's 'responsiveness' comes from the fact that every width is based on the relative '%', even the gutters. This makes the layout super fluid.
 
-Also, the way column widths are applied with mixins works neatly with media queries. We can simply handpick what `grid-unit` mixins we need for a specific layout unit for different media queries.
+Also, the way column widths are applied with mixins works neatly with media queries. We can simply handpick what `grid-unit` mixins we need for different media queries.
 
 The details
 -----------
