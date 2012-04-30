@@ -28,10 +28,15 @@
 // DEMO Nested
 //----------------------------------------------------
 
-// When nesting grids, we need a couple more parameters for our container and units
+// Nesting grids works works great, all you need to know is how many
+// columns (or in how many parts) the layout is divided in, in its new context.
+
+// But if you are using % unit for gutters, then we need to include some 
+// extra paramenters for the grid mixins:
+
 // 1. The initial gutter of the containing unit
 // 2. The containing units column span
-// 3. The the total column context of the containing unit
+// 3. The containing units total column context
 
 .demo-responsive-nested {
   @include grid-container($default-gutters, 3, 4);
