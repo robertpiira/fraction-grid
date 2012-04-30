@@ -35,8 +35,8 @@
 // extra paramenters for the grid mixins:
 
 // 1. The initial gutter of the containing unit
-// 2. The containing units column span
-// 3. The containing units total column context
+// 2. The containing unit's column span
+// 3. The containing unit's total column context
 
 .demo-responsive-nested {
   @include grid-container($default-gutters, 3, 4);
