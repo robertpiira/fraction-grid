@@ -10,7 +10,7 @@
 
 // define a block as a grid container
 .demo-basic {
-  @include grid-container;
+  @include grid;
 }
 
 // Define a unit within the grid container.
@@ -39,7 +39,7 @@
 // 3. The containing unit's total column context
 
 .demo-responsive-nested {
-  @include grid-container($default-gutters, 3, 4);
+  @include grid($default-gutters, 3, 4);
 }
 
 .demo-responsive-nested--unit {
@@ -52,7 +52,7 @@
 @media only screen and (min-width: 481px) {
 
   .demo-responsive {
-    @include grid-container;
+    @include grid;
   }
 
   .demo-responsive--unit {

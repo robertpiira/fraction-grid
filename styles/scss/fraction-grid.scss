@@ -1,12 +1,11 @@
 
-/*------------------------------------------------------------------
-
-fraction/grid
-
-Author:   Robert Piirainen
-Twitter:  @robertpiira
-
-------------------------------------------------------------------*/
+/**
+ * fraction/grid
+ *
+ * Author:   Robert Piirainen
+ * Twitter:  @robertpiira
+ *
+ */
 
 
 // SETTINGS
@@ -14,68 +13,74 @@ Twitter:  @robertpiira
 
 $default-gutters: 2% !default;
 
-// GRID EXTEND (to be extended only by grid mixins)
-// Note: should be converted to placeholder extends in the future
+// HELPERS
 //------------------------------------------------------------------
 
-// The grid unit container
-.grid-container {
-  padding: 0; // remove if you're already using a reset for paddings
-  list-style: none; // remove if you're already using a reset for list-style
-}
-
-// The grid unit
-.grid-unit {
-  margin: 0; // remove if you're already using a reset for margins
-  letter-spacing: normal;
-  vertical-align: top;
+@mixin border-box {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-// GRID MIXINS
+@mixin stacks-horzontally {
+  display: inline-block;
+
+  // oldie
+  *display: inline;
+  *zoom: 1;
+}
+
+@mixin resets-context {
+  letter-spacing: normal;
+  vertical-align: top;
+}
+
+// BASE
 //------------------------------------------------------------------
 
-// Grid unit container
-@mixin is-grid-container {
+@mixin is-grid {
   letter-spacing: -0.31em;
-  @extend .grid-container;
 }
 
-// Grid unit
 @mixin is-grid-unit {
-  display: inline-block;
-  @extend .grid-unit;
+  @include resets-context;
+  @include stacks-horzontally;
+  @include border-box;
 }
 
-// Field units stretch the whole width of a container
 @mixin is-grid-field-unit {
+  @include resets-context;
+  @include border-box;
   display: block;
-  @extend .grid--unit;
 }
 
-// Define column widths
+// PARTS
+//------------------------------------------------------------------
+
+// Define unit widths
 @mixin has-width($target, $context) {
     width: calculate-widths($target, $context);
 }
 
-// Define gutters
+// Define unit gutters
 @mixin has-gutters($gutters, $target: false, $context: false) {
   padding-left: calculate-gutters($gutters, $target, $context);
   padding-right: calculate-gutters($gutters, $target, $context);
 }
 
-// Define offset gutters
+// Define container offset gutters
 @mixin has-offset-gutters($gutters, $target: false, $context: false) {
   margin-left: -#{calculate-gutters($gutters, $target, $context)};
   margin-right: -#{calculate-gutters($gutters, $target, $context)};
 }
 
-// Define grid parent
-@mixin grid-container($gutters: $default-gutters, $new-target: false, $new-context: false) {
-  @include is-grid-container;
-  @if ($gutters != false) {
+// GRID
+//------------------------------------------------------------------
+
+// Define grid container
+@mixin grid($gutters: $default-gutters, $new-target: false, $new-context: false) {
+  @include is-grid;
+  @if ($gutters) {
     @include has-offset-gutters($gutters, $new-target, $new-context);
   }
 }
@@ -86,9 +91,14 @@ $default-gutters: 2% !default;
   @if ($target and $context) {
     @include has-width($target, $context);
   }
-  @if ($gutters != false) {
+  @if ($gutters) {
     @include has-gutters($gutters, $new-target, $new-context);
   }
+}
+
+// Define grid field unit
+@mixin grid-field-unit {
+  @include is-grid-field-unit;
 }
 
 // FRACTION CALCULATORS
@@ -108,6 +118,3 @@ $default-gutters: 2% !default;
 @function calculate-widths($numerator, $denominator) {
   @return percentage($numerator / $denominator);
 }
-
-
-
