@@ -8,22 +8,19 @@
 .group {
   letter-spacing: -0.31em; }
 
-.unit {
-  letter-spacing: normal;
-  vertical-align: top;
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
-
-.field-unit {
-  letter-spacing: normal;
-  vertical-align: top;
+.unit, .field-unit {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  letter-spacing: normal;
+  vertical-align: top; }
+
+.unit {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
+
+.field-unit {
   display: block; }
 
 .demo-basic {

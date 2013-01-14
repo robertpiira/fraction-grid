@@ -129,10 +129,17 @@ $default-gutters: 2% !default;
   @include is-grid;
 }
 
+%basic-unit {
+  @include border-box;
+  @include resets-context;
+}
+
 .unit {
-  @include is-grid-unit;
+  @extend %basic-unit;
+  @include stacks-horzontally;
 }
 
 .field-unit {
-  @include is-grid-field-unit;
+  @extend %basic-unit;
+  display: block;
 }
