@@ -5,6 +5,27 @@
  * Twitter:  @robertpiira
  *
  */
+.group {
+  letter-spacing: -0.31em; }
+
+.unit {
+  letter-spacing: normal;
+  vertical-align: top;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.field-unit {
+  letter-spacing: normal;
+  vertical-align: top;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block; }
+
 .demo-basic {
   letter-spacing: -0.31em;
   margin-left: -2%;

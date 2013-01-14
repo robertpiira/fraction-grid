@@ -97,8 +97,11 @@ $default-gutters: 2% !default;
 }
 
 // Define grid field unit
-@mixin grid-field-unit {
+@mixin grid-field-unit($gutters: $default-gutters, $new-target: false, $new-context: false) {
   @include is-grid-field-unit;
+  @if ($gutters) {
+    @include has-gutters($gutters, $new-target, $new-context);
+  }
 }
 
 // FRACTION CALCULATORS
@@ -117,4 +120,19 @@ $default-gutters: 2% !default;
 // Calculate column widths
 @function calculate-widths($numerator, $denominator) {
   @return percentage($numerator / $denominator);
+}
+
+// BOILERPLATE CLASSES
+//------------------------------------------------------------------
+
+.group {
+  @include is-grid;
+}
+
+.unit {
+  @include is-grid-unit;
+}
+
+.field-unit {
+  @include is-grid-field-unit;
 }
