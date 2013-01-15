@@ -22,7 +22,7 @@ $default-gutters: 2% !default;
   box-sizing: border-box;
 }
 
-@mixin stacks-horzontally {
+@mixin stacks-horizontally {
   display: inline-block;
 
   // oldie
@@ -44,7 +44,7 @@ $default-gutters: 2% !default;
 
 @mixin is-grid-unit {
   @include resets-context;
-  @include stacks-horzontally;
+  @include stacks-horizontally;
   @include border-box;
 }
 
@@ -136,7 +136,7 @@ $default-gutters: 2% !default;
 
 .unit {
   @extend %basic-unit;
-  @include stacks-horzontally;
+  @include stacks-horizontally;
 }
 
 .field-unit {
